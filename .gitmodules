@@ -1,3 +1,7 @@
 [submodule "Deformation-data"]
 	path = Deformation-data
 	url = git@github.com:unskill-IV/Deformation-data.git
+
+[submodule "Deformation-graph"]
+	path = Deformation-graph
+	url = git@github.com:unskill-IV/Deformation-graph/git
