@@ -4,4 +4,4 @@
 
 [submodule "Deformation-graph"]
 	path = Deformation-graph
-	url = git@github.com:unskill-IV/Deformation-graph/git
+	url = git@github.com:unskill-IV/Deformation-graph.git
