@@ -1,12 +1,12 @@
 import sys
 from openpyxl import Workbook
 sys.path.append("Deformation-data/")
-from openpyxl import Workbook
 from deformation_module import *
 
 file = input('Enter measurement name: ')
 data_book = load_data(file)
 work_book = Workbook()
+height = get_height(file, len(data_book[0].sheetnames))
 
 print_names = ['time', 'velocity', 'Poisson', 'delta', 'shift', 'UV|TV']
 print_values = []
@@ -44,7 +44,7 @@ for i in range(3):
 
             mt = list(map(lambda x: round(x / 2, 4), new_tn))
             mean_mt = mean_value(mt)
-            velocity = velocity_f(mean_mt, height_f(file, sht))
+            velocity = velocity_f(mean_mt, height[shts.index(sht)])
             mean_delta_t = mean_abs_value(delta_t)
             used_amount_of_values = len(new_tn)
         else:
