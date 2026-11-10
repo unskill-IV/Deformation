@@ -106,6 +106,7 @@ for sh in range(columns_for_print):
         anisotropy = 0.0
 
     work_book['Sheet'].cell(row=((3 * rows_for_print) + 2), column=(sh + 3), value=anisotropy)
+    work_book['Sheet'].cell(row=((3 * rows_for_print) + 3), column=(sh + 3), value=deformation[sh])
 
 for t in range(3):
     for i in range(columns_for_print):
