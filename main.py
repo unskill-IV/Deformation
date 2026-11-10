@@ -1,5 +1,17 @@
 from openpyxl import Workbook
-from modules.deformation_module import *
+from modules.deformation_module import (
+    load_data,
+    get_height_and_deformation,
+    get_values,
+    mean_value,
+    mean_abs_value,
+    error_finder,
+    error_correction,
+    create_print_skeleton,
+    velocity_f,
+    poisson_f,
+    anisotropy_f
+)
 
 file = input('Enter measurement name: ')
 data_books = load_data(file)
