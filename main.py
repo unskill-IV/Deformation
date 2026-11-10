@@ -1,22 +1,20 @@
-import sys
 from openpyxl import Workbook
-sys.path.append("Deformation-data/")
-from deformation_module import *
+from modules.deformation_module import *
 
 file = input('Enter measurement name: ')
-data_book = load_data(file)
+data_books = load_data(file)
 work_book = Workbook()
-height = get_height(file, len(data_book[0].sheetnames))
+height, deformation = get_height_and_deformation(file, len(data_books[0].sheetnames))
 
 print_names = ['time', 'velocity', 'Poisson', 'delta', 'shift', 'UV|TV']
 print_values = []
 
 for i in range(3):
-    shts = data_book[i].sheetnames
+    shts = data_books[i].sheetnames
     ti_print_values = []
 
     for sht in shts:
-        tn, t2 = get_values(data_book[i], sht)
+        tn, t2 = get_values(data_books[i], sht)
         total_amount_of_values = len(tn)
 
         if total_amount_of_values >= 3:
@@ -67,7 +65,7 @@ for i in range(3):
 
     print_values.append(ti_print_values)
 
-create_print_skeleton(work_book, print_names, data_book[0].sheetnames)
+create_print_skeleton(work_book, print_names, data_books[0].sheetnames)
 
 rows_for_print = len(print_values[0][0])
 columns_for_print = len(print_values[0])
