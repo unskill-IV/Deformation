@@ -7,7 +7,7 @@ measurements.pop(measurements.index('for_graphs'))
 for mea in measurements:
     subprocess.run(
         ['python3', '-X', 'utf8', 'main.py'],
-        input=(mea + '\n'),
+        input=(f'{mea}\n'),
         text=True,
         encoding='utf-8'
     )
